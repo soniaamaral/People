@@ -3,8 +3,6 @@ require_relative 'person_list_printer'
 require_relative 'person_printer'
 require_relative 'pretty_person_printer'
 
-
-
 printer = PrettyPersonPrinter.new
 
 list_printer = PersonListPrinter.new printer
