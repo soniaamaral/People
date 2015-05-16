@@ -2,6 +2,7 @@ require_relative 'person'
 require_relative 'person_list_printer'
 require_relative 'person_printer'
 require_relative 'pretty_person_printer'
+require_relative 'file_people_repository'
 
 printer = PrettyPersonPrinter.new
 
@@ -13,4 +14,12 @@ employees = [
   Person.new("John", "Smith", 20000)
 ]
 
-list_printer.print_all employees
+repository = FilePeopleRepository.new "people.dat"
+
+repository.store_people employees
+
+employees.delete_at 1
+
+results = repository.load_people
+
+list_printer.print_all results
